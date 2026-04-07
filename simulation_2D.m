@@ -141,6 +141,7 @@ for fi=50e9:1e9:70e9
        [SNR_f_scalable(:,:),SR_f_scalable(t)]=SNR_calculation(Param,WW_f_scalable{1}.^factor,0); % Proposed_S
        t=t+1;
 end
+%% Secrecy rate (bits/symbol) vs frequency (Figure 7)
 figure
 fi=50e9:1e9:70e9;
 fii=50e9:0.1e9:70e9;
