@@ -153,7 +153,7 @@ SR_f_scalable_int=max(interp1(fi,SR_f_scalable,fii,"spline"),0);
 plot(fii,SR_opt_int,fii,SR_opt_f_new_int,fii,SR_opt_f_point_int,fii,SR_opt_f_new_design_int,fii,SR_f_scalable_int)
 AA=[fii', SR_opt_int',SR_opt_f_new_int',SR_opt_f_new_design_int',SR_opt_f_point_int',SR_f_scalable_int'];
 
-%% Figures for paper Heat maps%%%%
+%% Heat maps (Figure 8)
    fi=60e9;                          % Frequency of the signal for heatmap
    lambdai=c/fi;                      % Wave length
    kappai=2*pi/lambdai;                   % Wave number
