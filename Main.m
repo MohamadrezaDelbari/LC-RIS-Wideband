@@ -4,7 +4,6 @@ close all
 % Delete all the path cashes
 restoredefaultpath
 addpath('./functions')
-% addpath(genpath('/home/mdbab3f/Documents/Projects/cvx'), '-begin');
 
 %% Parameters
 load('Data/Data_100times1f60W8GHzP10')
