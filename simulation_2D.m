@@ -75,7 +75,15 @@ ParamC = struct('p_bs',p_bs,'p_irs',p_irs,'p_mu',p_mu,...
        [H_d,H_i,H_r,Param_output] = func_channel(ParamC);
 pris=Param_output.pp_ris_g;
 
-%% Channel and Optimization only for f1
+%% Benchmark 1 (All subcarriers, Area):
+for kk=1:K
+   Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
+           'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1000);
+   %[Wno1_f,wno1_f]=near_opt_2D_f(Paramphase,ParamC);
+   WW_opt_f{kk}=diag(wno1_f);
+end
+
+%% Benchmark 2 (Center frequency, Area)
 for kk=1:K
    pp_mu{kk}=[p_mu(kk,:)-1*[1 1 0];p_mu(kk,:)+1*[1 1 0]];
    pp_e=[p_e-1*[1 1 0];p_e+0*[0 1 0]];
@@ -85,29 +93,24 @@ for kk=1:K
    %[Wno1,wno1]=near_opt_2D(Paramphase,ParamC);
    WW_opt{kk}=diag(wno1);
 end
-%% Channel and Optimization for both f1 and f2 Only Channel not element
-for kk=1:K
-   Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
-           'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1000);
-   %[Wno1_f,wno1_f]=near_opt_2D_f(Paramphase,ParamC);
-   WW_opt_f{kk}=diag(wno1_f);
-end
-%% Channel and Optimization for both f1 and f2 both Channel and element
-for kk=1:K
-   Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
-           'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1,'S_0',wno1_f'*wno1_f);
-   [Wno1_f_new_design,wno1_f_new_design]=near_opt_2D_f_new_design(Paramphase,ParamC);
-   WW_opt_f_new_design{kk}=diag(wno1_f_new_design);
-end
-%save('Data/Data_20times10f64f256d1N300','Wno1','wno1','WW_opt_new','Wno1_f','wno1_f','WW_opt_f_new','WW_opt_f_new_design','wno1_f_new_design')
-%% Channel and Optimization for all f but only point
+
+%% Benchmark 3 (All subcarriers, Point)
 for kk=1:K
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',[p_mu;p_mu],'pp_e',[p_e;p_e],...
            'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1000);
    %[Wno1_f_point,wno1_f_point]=near_opt_2D_f(Paramphase,ParamC);
    WW_opt_f_point{kk}=diag(wno1_f_point);
 end
-%% Scalable Solution for Channel and Optimization for both f1 and f2 both Channel and element
+
+%% Proposed (SDP)
+for kk=1:K
+   Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
+           'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1,'S_0',wno1_f'*wno1_f);
+   [Wno1_f_new_design,wno1_f_new_design]=near_opt_2D_f_new_design(Paramphase,ParamC);
+   WW_opt_f_new_design{kk}=diag(wno1_f_new_design);
+end
+
+%% Proposed (Scalable)
 for kk=1:K
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',0.7,'S_0',wno1_f'*wno1_f,'s_opt',wno1_f_new_design);
