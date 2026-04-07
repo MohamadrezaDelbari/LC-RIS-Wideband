@@ -4,13 +4,9 @@ close all
 % Delete all the path cashes
 restoredefaultpath
 addpath('./functions')
-addpath(genpath('/home/mdbab3f/Documents/Projects/cvx'), '-begin');
+% addpath(genpath('/home/mdbab3f/Documents/Projects/cvx'), '-begin');
+
 %% Parameters
-close all
-clear variables
-clc
-addpath('./functions')
-%save('Data/Data_100times1f60W8GHzP10','Wno1','wno1','WW_opt_new','Wno1_f','wno1_f','WW_opt_f_new','WW_opt_f_new_design','wno1_f_new_design','wno1_f_point')
 load('Data/Data_100times1f60W8GHzP10')
 Powerdbm=10;                     % Power in dB
 Power=db2pow(Powerdbm-30);       % Power
@@ -127,6 +123,9 @@ for kk=1:K
    [Wno1_f_scalable,wno1_f_scalable]=near_scalable_2D_f_new_design(Paramphase,ParamC);
    WW_f_scalable{kk}=diag(wno1_f_scalable);
 end
+
+%save('Data/Data_100times1f60W8GHzP10','Wno1','wno1','WW_opt_new','Wno1_f','wno1_f','WW_opt_f_new','WW_opt_f_new_design','wno1_f_new_design','wno1_f_point')
+
 %% Calculating the secure rate on a range of frequency %%%%%%%%%%%%%%%%%
 clear SR_opt SR_opt_f_new SR_opt_f_new_design
 t=1;
