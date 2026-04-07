@@ -158,6 +158,8 @@ end
 end
 AA_converge=[(1:i_gamma*Imax)',converge];
 AA_converge_org=[(1:i_gamma*Imax)',converge_org];
+
+%% % Fig. 5
 plot(AA_converge(:,1),AA_converge(:,2:11))
 figure
 plot(AA_converge_org(:,1),AA_converge_org(:,2:11))
