@@ -8,11 +8,25 @@ addpath('./functions')
 
 
 
-%% Normalization factors:
+%% Parameters
+Powerdbm=10;                     % Power in dB
+Power=db2pow(Powerdbm-30);       % Power
+p_bs=[10 10 5];
+p_irs=[0 0 0];
+p_mu=[0 0 0];
+Krice_dB=[10,10,10];
 [K,~] = size(p_mu);
 SNR_thr(1:K)=10;
 h_blk=db2pow(-40);
+f=60*10^9;                       % Frequency
+c=3*10^8;                        % Speed of the light in vacuum
+lambda=c/f;                      % Wave length
+kappa=2*pi/lambda;               % Wave number
 beta=((lambda/(4*pi))^2);
+d_bs_x=lambda/2;                 % Element distance in BS in x-axis
+d_bs_z=lambda/2;                 % Element distance in BS in z-axis
+d_irs_y=lambda/2;                % Element distance in RIS in y-axis
+d_irs_z=lambda/2;                % Element distance in RIS in z-axis
 d0=1;
 N0=db2pow(-174)/1000;
 W_total=8.64*10^9;
@@ -24,13 +38,17 @@ var_noise = var_noise_base/norm_factor;
 factor_Hi = 1/sqrt(sqrt(norm_factor));
 factor_Hr = factor_Hi;
 factor_Hd = 1/sqrt(norm_factor);
+eta=[2 2 2];                     % Path-loss exponent
+N_mu=1;                          % Number of MU antennas
+N_y=100;                         % Number of RIS elements in y-axis
+N_z=1;                           % Number of RIS elements in z-axis
+S=10;                            % Number of scatterers
+% Scatterers
+Vscatter{1}=[p_bs;mean(p_mu,1)]; % direct channel
+Vscatter{2}=[p_irs;p_bs]; % BS-RIS
+Vscatter{3}=[p_irs;mean(p_mu,1)]; % RIS-MU
 
 Nend=100;
-p_bs=[10 10 5];
-p_irs=[0 0 0];
-p_mu=[0 0 0];
-h_blk=db2pow(0);
-Krice_dB=[10,10,10];
 for N=2:Nend
    N_bs_x=N;
    N_bs_z=1;
@@ -64,7 +82,8 @@ for N=2:Nend
 end
 minSNR=min(SNR,[],2);
 N=2:Nend;
-plot(N,minSNR)
 figure
 fi=56e9:0.1e9:64e9;
 plot(fi,SNR(7,:),fi,SNR(19,:),fi,SNR(59,:),fi,SNR(99,:))
+figure
+plot(N,minSNR)
