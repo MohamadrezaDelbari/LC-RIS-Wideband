@@ -75,7 +75,7 @@ ParamC = struct('p_bs',p_bs,'p_irs',p_irs,'p_mu',p_mu,...
        [H_d,H_i,H_r,Param_output] = func_channel(ParamC);
 pris=Param_output.pp_ris_g;
 
-%% Benchmark 1 (All subcarriers, Area):
+%% Benchmark 1 (All subcarriers, Area)
 for kk=1:K
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1000);
@@ -135,9 +135,8 @@ for fi=50e9:1e9:70e9
            'Krice_dB',Krice_dB,'Vscatter',Vscatter,'S',S,'x_start',2,'x_end',10, ...
            'y_start',-4,'y_end',4,'x_step',1,'y_step',1,'K',K,'Power',Power,'pp_mu',pp_mu,'pp_e',pp_e);
        factor=1+2.4*(kappai-kappa)/kappa;
-       %[SNR_opt_upper(:,:),SR_opt_upper(t)]=SNR_calculation(Param,WW_opt_upper{1}.^factor,0);
-       [SNR_opt(:,:),SR_opt(t)]=SNR_calculation(Param,WW_opt{1}.^factor,0);  %Benchmark 2
        [SNR_opt_f_new(:,:),SR_opt_f_new(t)]=SNR_calculation(Param,WW_opt_f{1}.^factor,0); %Benchmark 1
+       [SNR_opt(:,:),SR_opt(t)]=SNR_calculation(Param,WW_opt{1}.^factor,0);  %Benchmark 2
        [SNR_opt_f_point(:,:),SR_opt_f_point(t)]=SNR_calculation(Param,WW_opt_f_point{1}.^factor,0); %Benchmark 3
        [SNR_opt_f_new(:,:),SR_opt_f_new_design(t)]=SNR_calculation(Param,WW_opt_f_new_design{1}.^factor,0); % Proposed
        [SNR_f_scalable(:,:),SR_f_scalable(t)]=SNR_calculation(Param,WW_f_scalable{1}.^factor,0); % Proposed_S
