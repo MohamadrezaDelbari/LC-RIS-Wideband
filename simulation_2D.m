@@ -87,7 +87,6 @@ end
 
 %% Benchmark 2 (Center frequency, Area)
 for kk=1:K
-   WW_ana{kk} = near_ana_2D(f,N_y,N_z,pp_mu{kk},p_bs,pris); %Analytically
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'gamma',1000);
    %[Wno1,wno1]=near_opt_2D(Paramphase,ParamC);
