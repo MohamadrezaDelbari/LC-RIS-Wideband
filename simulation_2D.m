@@ -74,15 +74,6 @@ ParamC = struct('p_bs',p_bs,'p_irs',p_irs,'p_mu',p_mu,...
            'Krice_dB',Krice_dB,'Vscatter',Vscatter,'S',S);
        [H_d,H_i,H_r,Param_output] = func_channel(ParamC);
 pris=Param_output.pp_ris_g;
-%% Not in Benchmarks only for upper-bound: Channel and Optimization only for f1 aand only for a point
-% for kk=1:K
-%    pp_mu{kk}=[p_mu(kk,:);p_mu(kk,:)];
-%    pp_e=[p_e;p_e];
-%    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
-%            'lambda',lambda,'step',1,'Power',Power,'gamma',1000);
-%    [Wno1_upper,wno1_upper]=near_opt_2D(Paramphase,ParamC);
-%    WW_opt_upper{kk}=diag(wno1_upper);
-% end
 
 %% Channel and Optimization only for f1
 for kk=1:K
