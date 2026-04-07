@@ -1,6 +1,6 @@
 %%----------------------------------------------------%%
 %%----- Mohamadreza Delbari
-%%----- Wideband Illunimation Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests
+%%----- Wideband Illumination Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests
 %%----- Please cite: 
 %%----- Please cite: https://arxiv.org/pdf/2508.04331
 %%----------------------------------------------------%%
