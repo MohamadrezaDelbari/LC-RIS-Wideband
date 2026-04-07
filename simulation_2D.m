@@ -152,8 +152,24 @@ SR_opt_f_new_design_int=max(interp1(fi,SR_opt_f_new_design,fii,"spline"),0);
 SR_f_scalable_int=max(interp1(fi,SR_f_scalable,fii,"spline"),0);
 plot(fii,SR_opt_int,fii,SR_opt_f_new_int,fii,SR_opt_f_point_int,fii,SR_opt_f_new_design_int,fii,SR_f_scalable_int)
 AA=[fii', SR_opt_int',SR_opt_f_new_int',SR_opt_f_new_design_int',SR_opt_f_point_int',SR_f_scalable_int'];
+
 %% Figures for paper Heat maps%%%%
+   fi=60e9;                          % Frequency of the signal for heatmap
+   lambdai=c/fi;                      % Wave length
+   kappai=2*pi/lambdai;                   % Wave number
+   betai=((lambdai/(4*pi)).^2);
+   Param=struct('p_bs',p_bs,'p_irs',p_irs,'p_mu',p_mu,...
+           'factor_Hd',factor_Hd,'factor_Hi',factor_Hi,'factor_Hr',factor_Hr,...
+           'eta',eta,'d0',d0,'beta',betai,'h_blk',h_blk,...
+           'lambda',lambda,'N_bs_x',N_bs_x,'N_bs_z',N_bs_z,'N_mu',N_mu,'kappa',kappai,...
+           'N_y',N_y,'N_z',N_z,'d_bs_x',d_bs_x,'d_bs_z',d_bs_z,'d_irs_y',d_irs_y,'d_irs_z',d_irs_z,...
+           'Krice_dB',Krice_dB,'Vscatter',Vscatter,'S',S,'x_start',2,'x_end',10, ...
+           'y_start',-4,'y_end',4,'x_step',1,'y_step',1,'K',K,'Power',Power,'pp_mu',pp_mu,'pp_e',pp_e);
+       factor=1+2.4*(kappai-kappa)/kappa;
+       [SNR_f_scalable(:,:),SR_f_scalable(t)]=SNR_calculation(Param,WW_f_scalable{1}.^factor,1); % Choose which one do you want to plot (Example here: Proposed_S)
+
 hold on
+
 x_rect = [-0.2 2.2 2.2 -0.2]; y_rect = [4.8 4.8 7.2 7.2]; z_rect = ones(1,4) * 30;  % just above the surface
 fill3(x_rect, y_rect, z_rect, 'g', ...       % Use 'g' or [0 1 0] for green
    'FaceAlpha', 0, ...                      % Transparent fill
@@ -167,7 +183,8 @@ fill3(x_rect, y_rect, z_rect, 'r', ...
 %title('Benchmark 1','FontSize',28,'FontWeight','bold')
 xlabel('$\mathsf{y[m]}$','FontSize',22,'FontWeight','bold','Interpreter','latex')
 ylabel('$\mathsf{x[m]}$','FontSize',22,'FontWeight','bold','Interpreter','latex')
-exportgraphics(gca,fullfile('Figure','Proposed_S_64.pdf','ContentType','vector'))
+exportgraphics(gca, fullfile('Figure', sprintf('Proposed_S_%d.pdf', fi/1e9)), 'ContentType', 'vector')
+
 %% Impact of N and frequency and receive power
 Nend=100;
 p_bs=[10 10 5];
