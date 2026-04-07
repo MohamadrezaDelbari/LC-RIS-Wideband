@@ -1,3 +1,10 @@
+%%----------------------------------------------------%%
+%%----- Mohamadreza Delbari
+%%----- Wideband Illumination Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests
+%%----- Please cite: 
+%%----- Please cite: https://arxiv.org/pdf/2508.04331
+%%----------------------------------------------------%%
+
 %% Impact of N and frequency and receive power
 clear variables
 clc
