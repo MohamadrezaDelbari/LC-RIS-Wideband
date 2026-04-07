@@ -77,6 +77,8 @@ pris=Param_output.pp_ris_g;
 
 %% Benchmark 1 (All subcarriers, Area)
 for kk=1:K
+   pp_mu{kk}=[p_mu(kk,:)-1*[1 1 0];p_mu(kk,:)+1*[1 1 0]];
+   pp_e=[p_e-1*[1 1 0];p_e+0*[0 1 0]];
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1000);
    %[Wno1_f,wno1_f]=near_opt_2D_f(Paramphase,ParamC);
@@ -85,8 +87,6 @@ end
 
 %% Benchmark 2 (Center frequency, Area)
 for kk=1:K
-   pp_mu{kk}=[p_mu(kk,:)-1*[1 1 0];p_mu(kk,:)+1*[1 1 0]];
-   pp_e=[p_e-1*[1 1 0];p_e+0*[0 1 0]];
    WW_ana{kk} = near_ana_2D(f,N_y,N_z,pp_mu{kk},p_bs,pris); %Analytically
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'gamma',1000);
