@@ -105,7 +105,7 @@ end
 for kk=1:K
    Paramphase = struct('p_bs',p_bs,'pris',pris,'pp_mu',pp_mu,'pp_e',pp_e,...
            'lambda',lambda,'step',1,'Power',Power,'kappa',kappai,'gamma',1,'S_0',wno1_f'*wno1_f);
-   [Wno1_f_new_design,wno1_f_new_design]=near_opt_2D_f_new_design(Paramphase,ParamC);
+   %[Wno1_f_new_design,wno1_f_new_design]=near_opt_2D_f_new_design(Paramphase,ParamC);
    WW_opt_f_new_design{kk}=diag(wno1_f_new_design);
 end
 
