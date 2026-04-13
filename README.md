@@ -1,10 +1,13 @@
 # Wideband Illumination Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests
 [![License: MIT + Citation Request](https://img.shields.io/badge/License-MIT--Citation-yellow.svg)](./LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.09214-b31b1b.svg)](https://arxiv.org/pdf/2604.09214)
 [![arXiv](https://img.shields.io/badge/arXiv-2508.04331-b31b1b.svg)](https://arxiv.org/pdf/2508.04331)
 
 This repository contains the source code for the following papers:
 
-[1] M. Delbari, R. Neuder, A. Jiménez-Sáez, Q. Zhou, and V. Jamali, "Wideband Illumination Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests," Submitted to IEEE Transactions on Wireless Communications.
+[1] M. Delbari, R. Neuder, A. Jiménez-Sáez, Q. Zhou, and V. Jamali, "Wideband Illumination with Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests," Submitted to IEEE Transactions on Wireless Communications.
+
+https://arxiv.org/pdf/2604.09214
 
 [2] M. Delbari, R. Neuder, A. Jiménez-Sáez, Q. Zhou, and V. Jamali, “Near-field Liquid Crystal RIS Phase-Shift Design for Secure Wideband Illumination”, in Proc. IEEE Globecom Workshops (GC Wkshps), Taipei, Taiwan, 2025.
 
@@ -27,9 +30,18 @@ The work of M. Delbari, Q. Zhou, and V. Jamali was supported in part by the Deut
 This program is licensed under the MIT license. If you in any way use this code for research that results in publications, please cite our original article listed above. You can also use the following BibTeX entry
 
 <pre lang="markdown">
+@article{delbari2026wideband,
+  title={Wideband Illumination with Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests},
+  author={Delbari, Mohamadreza and Neuder, Robin and Jim{\'e}nez-S{\'a}ez, Alejandro and Zhou, Qikai and Jamali, Vahid},
+  journal = {ArXiv: 2604.09214},
+  year={2026}
+}
+</pre>
+
+<pre lang="markdown">
 @inproceedings{delbari2025wideband,
   title={Near-field Liquid Crystal {RIS} Phase-Shift Design for Secure Wideband Illumination},
-  author={Delbari, Mohamadreza and Zhou, Qikai and Neuder, Robin and Jim{\'e}nez-S{\'a}ez, Alejandro and Jamali, Vahid},
+  author={Delbari, Mohamadreza and Neuder, Robin and Jim{\'e}nez-S{\'a}ez, Alejandro and Zhou, Qikai and Jamali, Vahid},
   booktitle = {Proc. IEEE Globecom},
   year={2025}
 }
