@@ -30,11 +30,11 @@ The work of M. Delbari, Q. Zhou, and V. Jamali was supported in part by the Deut
 This program is licensed under the MIT license. If you in any way use this code for research that results in publications, please cite our original article listed above. You can also use the following BibTeX entry
 
 <pre lang="markdown">
-@article{delbari2026wideband,
+@misc{delbari2026wideband,
   title={Wideband Illumination with Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests},
   author={Delbari, Mohamadreza and Neuder, Robin and Jim{\'e}nez-S{\'a}ez, Alejandro and Zhou, Qikai and Jamali, Vahid},
-  journal = {ArXiv: 2604.09214},
-  year={2026}
+  year={2026},
+  url = {https://arxiv.org/pdf/2604.09214}
 }
 </pre>
 
