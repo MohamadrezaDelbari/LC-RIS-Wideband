@@ -1,4 +1,4 @@
-function voltage = phasevoltage(phase)
+function phase_shift = voltagephase(voltage)
 
 AA=[0	0
 0.317989	0.005127
@@ -1951,5 +1951,5 @@ AA=[0	0
 359.9675	9.9873
 359.9888	9.99243];
  
-    voltage = interp1(AA(:,1), AA(:,2), phase, 'linear', 'extrap');
+    phase_shift = interp1(AA(:,2), AA(:,1), voltage, 'linear', 'extrap');
 end
