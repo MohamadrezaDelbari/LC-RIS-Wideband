@@ -1,7 +1,7 @@
 # Wideband Illumination Liquid Crystal Reconfigurable Intelligent Surfaces: Modeling, Design, and Experimental Tests
 [![License: MIT + Citation Request](https://img.shields.io/badge/License-MIT--Citation-yellow.svg)](./LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-2604.09214-b31b1b.svg)](https://arxiv.org/pdf/2604.09214)
-[![arXiv](https://img.shields.io/badge/arXiv-2508.04331-b31b1b.svg)](https://arxiv.org/pdf/2508.04331)
+[![DOI](https://img.shields.io/badge/DOI-10.1109/GCWkshps68340.2025.11591109-blue.svg)](https://ieeexplore.ieee.org/document/11591109)
 
 This repository contains the source code for the following papers:
 
@@ -9,9 +9,9 @@ This repository contains the source code for the following papers:
 
 https://arxiv.org/pdf/2604.09214
 
-[2] M. Delbari, R. Neuder, A. Jiménez-Sáez, Q. Zhou, and V. Jamali, “Near-field Liquid Crystal RIS Phase-Shift Design for Secure Wideband Illumination”, in Proc. IEEE Globecom Workshops (GC Wkshps), Taipei, Taiwan, 2025.
+[2] M. Delbari, R. Neuder, A. Jiménez-Sáez, Q. Zhou, and V. Jamali, “Near-field Liquid Crystal RIS Phase-Shift Design for Secure Wideband Illumination”, in Proc. IEEE Globecom Workshops (GC Wkshps), Taipei, Taiwan, pp. 1250-1255, 2025.
 
-https://arxiv.org/pdf/2508.04331
+https://ieeexplore.ieee.org/document/11591109
 
 # Usage
 1. Run Fig_3.m file to generate Fig 3.
@@ -43,6 +43,7 @@ This program is licensed under the MIT license. If you in any way use this code 
   title={Near-field Liquid Crystal {RIS} Phase-Shift Design for Secure Wideband Illumination},
   author={Delbari, Mohamadreza and Neuder, Robin and Jim{\'e}nez-S{\'a}ez, Alejandro and Zhou, Qikai and Jamali, Vahid},
   booktitle = {Proc. IEEE Globecom},
+  pages={1250-1255},
   year={2025}
 }
 </pre>
